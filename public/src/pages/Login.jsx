@@ -15,10 +15,11 @@ export default function Login() {
     autoClose: 8000,
     pauseOnHover: true,
     draggable: true,
-    theme: "dark",
+//     theme: "dark",
   };
   useEffect(() => {
-    if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
+    //process.env.REACT_APP_LOCALHOST_KEY
+    if (localStorage.getItem('chat-app-user')) {
       navigate("/");
     }
   }, []);
@@ -51,8 +52,8 @@ export default function Login() {
         toast.error(data.msg, toastOptions);
       }
       if (data.status === 'success') {
-        localStorage.setItem(
-          process.env.REACT_APP_LOCALHOST_KEY,
+        localStorage.setItem( 
+          "chat-app-user",
           JSON.stringify(data.user)
         );
 
