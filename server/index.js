@@ -2,7 +2,7 @@ const express=require('express');
 const cors =require('cors');
 const mongoose=require('mongoose');
 const authRoutes = require("./routes/auth");
-
+const messageRoutes=require("./routes/message");
 const App=express();
 require("dotenv").config();
 
@@ -23,5 +23,7 @@ mongoose.connect(process.env.DATABASE, {
  }
  );
  App.use("/api/auth", authRoutes);
+ App.use("/api/message",messageRoutes );
+
 
 
